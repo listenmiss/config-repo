@@ -1,0 +1,14 @@
+zuul:  #自定义路由
+  routes:
+    aaaaaaa:
+      path: /myProduct/**
+      serviceId: product
+      sensitiveHeaders:              #设置后台可以接收cookie等敏感信息
+# 简洁写法
+#    product: /myProduct/**
+# 排除某些路由
+  ignored-patterns:
+    - /**/product/listForOrder
+management:
+  security:
+    enabled: false
