@@ -1,14 +1,17 @@
-zuul:  #自定义路由
+zuul:
+  #全部服务忽略敏感头(全部服务都可以传递cookie)
+  sensitive-headers: 
   routes:
-    aaaaaaa:
+  # /myProduct/product/list -> /product/product/list
+    aaaaaa:
       path: /myProduct/**
       serviceId: product
-      sensitiveHeaders:              #设置后台可以接收cookie等敏感信息
-# 简洁写法
+      sensitiveHeaders:
+  #简洁写法
 #    product: /myProduct/**
-# 排除某些路由
+  #排除某些路由
   ignored-patterns:
-    - /**/product/listForOrder
+    - /**/product/listForOrder 
 management:
   security:
-    enabled: false
+    enabled: false        
